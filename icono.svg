@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b1f27"/>
+      <stop offset="1" stop-color="#0b0c0f"/>
+    </linearGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30"/></filter>
+    <filter id="brillo" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="18"/></filter>
+    <clipPath id="marco"><rect x="64" y="64" width="896" height="896" rx="200"/></clipPath>
+  </defs>
+  <g clip-path="url(#marco)">
+  <rect x="64" y="64" width="896" height="896" rx="200" fill="url(#cielo)"/>
+  <!-- el edificio de la productora, en isométrico -->
+  <polygon points="512,250 760,380 512,510 264,380" fill="#3a3f49"/>
+  <polygon points="264,380 512,510 512,780 264,650" fill="#262a32"/>
+  <polygon points="512,510 760,380 760,650 512,780" fill="#1d2027"/>
+  <!-- ventanas apagadas -->
+  <g fill="#ece5d8" opacity=".14">
+    <polygon points="310,450 370,481 370,551 310,520"/>
+    <polygon points="410,502 470,533 470,603 410,572"/>
+    <polygon points="554,533 614,502 614,572 554,603"/>
+    <polygon points="654,481 714,450 714,520 654,551"/>
+    <polygon points="310,580 370,611 370,681 310,650"/>
+    <polygon points="654,611 714,580 714,650 654,681"/>
+  </g>
+  <!-- la única ventana encendida, en rojo -->
+  <polygon points="554,663 614,632 614,702 554,733" fill="#e3262e" filter="url(#brillo)" opacity=".8"/>
+  <polygon points="554,663 614,632 614,702 554,733" fill="#ff4a50"/>
+  <!-- neblina -->
+  <ellipse cx="420" cy="760" rx="360" ry="70" fill="#c9d3dc" opacity=".22" filter="url(#blur)"/>
+  <ellipse cx="640" cy="820" rx="300" ry="60" fill="#c9d3dc" opacity=".16" filter="url(#blur)"/>
+  </g>
+</svg>
