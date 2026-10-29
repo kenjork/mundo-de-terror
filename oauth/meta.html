@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Conectando · Productora Mundo de Terror</title>
+  <link rel="stylesheet" href="../estilos.css">
+</head>
+<body>
+  <main class="envoltura">
+    <h1>Volviendo a la productora…</h1>
+    <p id="mensaje">Meta te devolvió aquí. Te llevo de vuelta a la aplicación en tu Mac.</p>
+  </main>
+  <script>
+    // Meta solo acepta volver a una dirección https fija. Esta página reenvía la respuesta a la productora,
+    // que corre en esta misma computadora (127.0.0.1); el puerto viaja dentro de "state" ("p<puerto>-<azar>").
+    const q = new URLSearchParams(location.search);
+    const puerto = (q.get('state') || '').match(/^p(\d{2,5})-[0-9a-f]{32}$/);
+    if (puerto) location.replace(`http://127.0.0.1:${puerto[1]}/oauth/meta/${location.search}`);
+    else document.getElementById('mensaje').textContent = 'Este enlace no viene de la productora. Vuelve a la aplicación y toca "Conectar con Meta".';
+  </script>
+</body>
+</html>
